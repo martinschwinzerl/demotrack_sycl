@@ -16,12 +16,12 @@ namespace demotrack
 
     struct __attribute__((aligned( 8 ))) SpaceChargeCoasting
     {
-        static constexpr uint64_type NUM_SLOTS() noexcept
+        DEMOTRACK_FN static constexpr uint64_type NUM_SLOTS() noexcept
         {
             return uint64_type{ 10 };
         }
 
-        static DoublePair TRANSVERSAL_FIELD_GAUSS_ROUND(
+        DEMOTRACK_FN static DoublePair TRANSVERSAL_FIELD_GAUSS_ROUND(
             double const sigma, double const delta_x, double const delta_y,
             double const x, double const y ) noexcept {
 
@@ -44,7 +44,7 @@ namespace demotrack
             return DoublePair{ temp * xx, temp * yy };
         }
 
-        static DoublePair CERRF(
+        DEMOTRACK_FN static DoublePair CERRF(
             double const in_real, double const in_imag ) noexcept {
 
             using std::fabs;
@@ -140,7 +140,7 @@ namespace demotrack
             return W;
         }
 
-        static DoublePair TRANSVERSAL_FIELD_GAUSS_ELLIPSE(
+        DEMOTRACK_FN static DoublePair TRANSVERSAL_FIELD_GAUSS_ELLIPSE(
             double const sigma_x, double const sigma_y,
             double const delta_x, double const delta_y,
             double const x, double const y ) noexcept {
@@ -203,7 +203,7 @@ namespace demotrack
             return E;
         }
 
-        static void GAUSS_FIELD_COMPONENTS(
+        DEMOTRACK_FN static void GAUSS_FIELD_COMPONENTS(
             double const x, double const y,
             double const sigma_x, double const sigma_y,
             double const min_sigma_diff,
@@ -268,7 +268,7 @@ namespace demotrack
             }
         }
 
-        uint64_type track( Particle& __restrict__ p,
+        DEMOTRACK_FN uint64_type track( Particle& __restrict__ p,
             uint64_type const slot_index ) const noexcept{
 
             using this_type = SpaceChargeCoasting;
@@ -306,7 +306,6 @@ namespace demotrack
         double min_sigma_diff;
         double enabled;
     };
-
 }
 
 #endif /* DEMOTRACK_SYCL_BEAM_FIELDS_H__ */
