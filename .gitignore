@@ -1,1 +1,3 @@
 build*/
+Settings.cmake
+config.h
