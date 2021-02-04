@@ -1,0 +1,16 @@
+set( DEMOTRACK_SYCL_IMPL "computecpp" CACHE STRING
+    "Choose SyCL implementation [values: dpcpp, trisycl, computecpp]" )
+
+set( DEMOTRACK_DEVICE_SELECTOR "host" CACHE STRING
+     "Choose device selector class [values: host, cpu, gpu, accelerator]" )
+
+option( DEMOTRACK_ENABLE_PROFILING "Enable profiling" ON )
+
+# ------------------------------------------------------------------------------
+# Helper & Advanced Settings  -> Only change if you know what you are doing!
+
+set_property( CACHE DEMOTRACK_SYCL_IMPL PROPERTY
+              STRINGS dpcpp trisycl computecpp )
+
+set_property( CACHE DEMOTRACK_DEVICE_SELECTOR PROPERTY
+              STRINGS host cpu gpu accelerator )
